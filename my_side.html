@@ -15,9 +15,18 @@
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+
+
+ <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.css"
+   integrity="sha384-P9DABSdtEY/XDbEInD3q+PlL+BjqPCXGcF8EkhtKSfSTr/dS5PBKa9+/PMkW2xsY"
+   crossorigin="anonymous"/>
+ <script
+   src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js"
+   integrity="sha384-8SqKZR7V8uOetpjjbcNJHvwuHpb074WS0UXjCLhzfJUqYn3B/uWx1WVv5mwRp1mV"
+   crossorigin="anonymous"></script>
+
   <!-- styles for elements html and body: fullscreen  -->
   <script src="E:\jonas_k\geo-76\earthquake_points.js"></script>
   <script src="E:\jonas_k\geo-76\grsn.js"></script>
@@ -113,7 +122,19 @@ var overlay_eq_points = L.geoJSON(eq_points, {
  return L.circleMarker(latlng, orangeMarker);
 }}).addTo(mymap);
 
-//var overlay_eq_points = L.geoJSON(grsn_points).addTo(mymap);
+// Leaflet-Ruler measure tool
+var options = {
+ position: 'bottomleft',
+  lengthUnit: {
+  factor: 1000,    //  from km to nm
+  display: "m",
+  decimal:0,
+  label: "Distance"
+  }
+ };
+// Leaflet-Ruler measure tool
+var ruler = L.control.ruler(options).addTo(mymap);
+
  </script>
  
 </body>
